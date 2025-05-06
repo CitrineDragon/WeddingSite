@@ -1,0 +1,35 @@
+---
+  import { getCollection } from "astro:content";
+  import { CldImage } from 'astro-cloudinary';
+  import { Image } from "astro:assets";
+
+  const assets = await getCollection('assets')
+  console.log(assets)
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Photos</h1>
+
+    <ul class="grid grid-cols-4 gap-4">
+      {assets.map(asset =>  {
+        return (
+          <CldImage src={asset.data.public_id} 
+          width={asset.data.width}
+          height={asset.data.height}
+          alt="wedding photo"
+          />
+
+        )
+      })}
+    </ul>
+
+	</body>
+</html>
