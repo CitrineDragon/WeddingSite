@@ -3,13 +3,12 @@
   import { CldImage } from 'astro-cloudinary';
 
   const assets = await getCollection('assets')
-  console.log(assets)
+  console.log(assets.length);
 ---
 
 <div class="image-gallery">
   {assets.map(asset =>  {
     const link = asset.data.secure_url;
-
     return (
       <a 
       href={link}
