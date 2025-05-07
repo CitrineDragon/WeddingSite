@@ -33,3 +33,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          branch: gh-pages # This is where your site will be deployed to.
+          folder: ./dist # The folder to deploy
