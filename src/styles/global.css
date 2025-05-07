@@ -17,10 +17,15 @@ h1 {
   padding: 8rem 3rem 3rem;
 }
 
-a {
+a,
+span {
   color: black;
   font-family: 'Tangerine', cursive;
   font-size: 2rem;
   font-weight: 400;
   font-style: normal;
+}
+
+.link {
+  font-size: 1.6rem;
 }
