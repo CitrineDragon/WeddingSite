@@ -7,5 +7,5 @@ export default defineConfig({
     enabled: false,
   },
   site: 'https://CitrineDragon.github.io',
-  base: '/weddingSite/',
+  base: '/WeddingSite/',
 });
