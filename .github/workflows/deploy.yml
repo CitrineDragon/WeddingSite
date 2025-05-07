@@ -29,10 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v2
         with:
-          branch: gh-pages # This is where your site will be deployed to.
-          folder: ./dist # The folder to deploy
+          branch: gh-pages # The branch to deploy to
+          folder: ./dist # The folder to deploy (output of your Astro build)
