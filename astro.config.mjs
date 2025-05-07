@@ -6,6 +6,4 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  site: 'https://CitrineDragon.github.io',
-  base: '/WeddingSite/',
 });
