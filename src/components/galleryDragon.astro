@@ -1,0 +1,52 @@
+---
+  import { getCollection } from "astro:content";
+  import { CldImage } from 'astro-cloudinary';
+
+  const dragons = await getCollection('dragons')
+  console.log(dragons.length);
+---
+
+<div class="image-gallery">
+  {dragons.map(dragon =>  {
+    const link = dragon.data.secure_url;
+    return (
+      <a 
+      href={link}
+      target="blank"
+      >
+        <CldImage 
+        src={dragon.data.public_id} 
+        crop="auto"
+        alt="Dragon Photo"
+        class="responsive-image"
+        />
+      </a>
+    )
+  })}
+</div>
+
+<style>
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem;
+    justify-content: center;
+    gap: .5rem;
+  }
+
+  .responsive-image {
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    flex: 1 1 300px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+</style>
+<script></script>
+
