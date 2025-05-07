@@ -1,27 +1,51 @@
 ---
   import { getCollection } from "astro:content";
   import { CldImage } from 'astro-cloudinary';
-  import { Image } from "astro:assets";
 
   const assets = await getCollection('assets')
   console.log(assets)
 ---
 
-<ul>
+<div class="image-gallery">
   {assets.map(asset =>  {
+    const link = asset.data.secure_url;
+
     return (
-      <CldImage src={asset.data.public_id} 
-      width={asset.data.width}
-      height={asset.data.height}
-      alt="wedding photo"
-      />
+      <a 
+      href={link}
+      target="blank"
+      >
+        <CldImage 
+        src={asset.data.public_id} 
+        crop="auto"
+        alt="wedding photo"
+        class="responsive-image"
+        />
+      </a>
     )
   })}
-</ul>
+</div>
 
 <style>
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem;
+    justify-content: center;
+    gap: .5rem;
+  }
+
+  .responsive-image {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    flex: 1 1 300px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+
+  }
 
 </style>
-
 <script></script>
 
