@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import { CldVideoPlayer } from 'astro-cloudinary';
+
+const vids = await getCollection('vids')
+console.log(vids);
+
+---
+
+<div class="vid">
+  {vids.map(vid =>  {
+    const link = vid.data.secure_url;
+    const h = vid.data.height;
+    const w = vid.data.width;
+
+    return (
+        <CldVideoPlayer
+        class="responsive-vid"
+        height="0"
+        width="0"
+        src={link}
+        transformation={{
+          height: '1200',
+          width: "1600",
+          crop: 'fill',
+          gravity: 'auto'
+        }}
+        autoplay
+        playsinline
+        controls
+        />
+    
+    )
+  })}
+</div>
+
+<style>
+  .vid {
+  height: auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 0rem;
+}
+
+.responsive-vid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>

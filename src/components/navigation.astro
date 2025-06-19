@@ -45,10 +45,18 @@
 }
 
 /* General Link Style */
+a,
+span {
+  color: black;
+  font-family: 'Tangerine', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: normal;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
-  color: black;
   font-weight: 500;
 }
 
@@ -58,17 +66,12 @@ a {
   display: inline-block;
 }
 
-.nav-link {
-  font-weight: 500;
-  cursor: pointer;
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: white;
   min-width: 120px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 12px rgba(0,0,0,0.5);
   z-index: 1;
   flex-direction: column;  
 }
@@ -82,7 +85,8 @@ a {
 }
 
 .dropdown-content a:hover {
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 </style>
